@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#12121A">
+
+    <!-- ОСНОВНОЙ ИНТЕРФЕЙС (Скрыт до ввода имени) -->
+    <LinearLayout
+        android:id="@+id/mainGameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <FrameLayout
+            android:id="@+id/mainContainer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <!-- ВКЛАДКА 1: ИГРА -->
+            <LinearLayout
+                android:id="@+id/tabGame"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#1C1C26"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+                    <TextView
+                        android:id="@+id/coinsText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="🪙 0"
+                        android:textColor="#FFD700"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/energyText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⚡ 10/10"
+                        android:textColor="#7CFFB2"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/levelText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="16dp"
+                    android:text="Уровень 1"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/statusText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:text="Копай!"
+                    android:textColor="#888888"
+                    android:textSize="16sp" />
+
+                <GridLayout
+                    android:id="@+id/grid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="24dp"
+                    android:columnCount="3"
+                    android:rowCount="3" />
+
+                <Button
+                    android:id="@+id/btnNextLevel"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="24dp"
+                    android:backgroundTint="#7CFFB2"
+                    android:text="Следующий уровень"
+                    android:textColor="#12121A"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <!-- ВКЛАДКА 2: КОЛЛЕКЦИЯ -->
+            <LinearLayout
+                android:id="@+id/tabCollection"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/playerNameTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Игрок"
+                    android:textColor="#FFFFFF"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="🏆 Коллекция"
+                    android:textColor="#FFFFFF"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/diamondText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="💎 Алмазов: 0"
+                    android:textColor="#7CFFB2"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:padding="16dp"
+                    android:text="Алмазы — самая редкая валюта. Трать их во вкладке «Улучшения» на особые усиления."
+                    android:textColor="#888888"
+                    android:textSize="14sp"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+
+            <!-- ВКЛАДКА 3: УЛУЧШЕНИЯ -->
+            <ScrollView
+                android:id="@+id/tabSettings"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⚒️ Улучшения"
+                        android:textColor="#FFFFFF"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:text="За монеты 🪙"
+                        android:textColor="#FFD700"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+
+                    <Button
+                        android:id="@+id/btnUpgradeCoins"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:backgroundTint="#3D2B1F"
+                        android:text="Улучшить кирку (Ур. 1)\nЦена: 100 🪙"
+                        android:textColor="#FFFFFF" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:text="За алмазы 💎"
+                        android:textColor="#7CFFB2"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+
+                    <Button
+                        android:id="@+id/btnMegaPickaxe"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:backgroundTint="#2A2A3A"
+                        android:text="Купить Мега-кирку\n(Ломает 3 блока) - 10 💎"
+                        android:textColor="#FFFFFF" />
+
+                    <Button
+                        android:id="@+id/btnInfiniteEnergy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:backgroundTint="#2A2A3A"
+                        android:text="Бесконечная энергия\n- 20 💎"
+                        android:textColor="#FFFFFF" />
+
+                    <Button
+                        android:id="@+id/btnReset"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="64dp"
+                        android:backgroundTint="#D32F2F"
+                        android:text="Сбросить прогресс"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+            </ScrollView>
+        </FrameLayout>
+
+        <!-- НИЖНЯЯ ПАНЕЛЬ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#1C1C26"
+            android:orientation="horizontal"
+            android:padding="8dp">
+            <Button
+                android:id="@+id/btnTabGame"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:backgroundTint="#3D2B1F"
+                android:text="Играть"
+                android:textColor="#FFFFFF" />
+            <Button
+                android:id="@+id/btnTabCollection"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:backgroundTint="#1C1C26"
+                android:text="Коллекция"
+                android:textColor="#888888" />
+            <Button
+                android:id="@+id/btnTabSettings"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                android:backgroundTint="#1C1C26"
+                android:text="Улучшения"
+                android:textColor="#888888" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- НАЧАЛЬНЫЙ ЭКРАН (ПРИВЕТСТВИЕ) -->
+    <LinearLayout
+        android:id="@+id/menuLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#12121A"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="32dp"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⛏️"
+            android:textSize="80sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="ЗОЛОТАЯ ЖИЛА"
+            android:textColor="#FFD700"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Копай, богатей, прокачивайся!"
+            android:textColor="#888888"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/inputName"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="48dp"
+            android:background="#1C1C26"
+            android:hint="Введите ваше имя"
+            android:padding="16dp"
+            android:maxLength="12"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#555555"
+            android:textSize="18sp"
+            android:gravity="center" />
+
+        <Button
+            android:id="@+id/btnStartGame"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="#7CFFB2"
+            android:text="НАЧАТЬ ИГРУ"
+            android:textColor="#12121A"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</FrameLayout>
